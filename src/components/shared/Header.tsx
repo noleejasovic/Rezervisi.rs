@@ -83,49 +83,6 @@ export function Header() {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1">
-          <Link
-            href="/salons"
-            className={cn(
-              "px-4 py-2 rounded-full text-sm font-medium transition-all",
-              isActive('/salons')
-                ? "bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted"
-            )}
-          >
-            Pronađi salon
-          </Link>
-
-          {isAuthenticated && !isProvider && (
-            <Link
-              href="/my-bookings"
-              className={cn(
-                "px-4 py-2 rounded-full text-sm font-medium transition-all",
-                isActive('/my-bookings')
-                  ? "bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
-              )}
-            >
-              Moje rezervacije
-            </Link>
-          )}
-
-          {isProvider && (
-            <Link
-              href="/dashboard"
-              className={cn(
-                "px-4 py-2 rounded-full text-sm font-medium transition-all",
-                pathname.startsWith('/dashboard') || pathname.startsWith('/bookings') || pathname.startsWith('/services') || pathname.startsWith('/working-hours')
-                  ? "bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
-              )}
-            >
-              Dashboard
-            </Link>
-          )}
-        </div>
-
         {/* Right Side Actions */}
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
@@ -290,19 +247,6 @@ export function Header() {
         )}
       >
         <div className="container mx-auto px-4 py-4 space-y-2">
-          <Link
-            href="/salons"
-            className={cn(
-              "flex items-center gap-3 px-4 py-3 rounded-xl transition-colors",
-              isActive('/salons')
-                ? "bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300"
-                : "hover:bg-muted"
-            )}
-          >
-            <Search className="h-5 w-5" />
-            <span className="font-medium">Pronađi salon</span>
-          </Link>
-
           {isAuthenticated ? (
             <>
               {isProvider ? (
