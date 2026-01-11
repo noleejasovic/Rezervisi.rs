@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Sparkles, Mail, Phone, MapPin } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
@@ -148,7 +149,7 @@ export function Footer() {
             <p className="text-sm text-slate-500">
               &copy; {new Date().getFullYear()} {siteConfig.name}. Sva prava zadržana.
             </p>
-            <div className="flex gap-6 text-sm">
+            <div className="flex items-center gap-6 text-sm">
               <Link href="/privacy" className="text-slate-500 hover:text-violet-400 transition-colors">
                 Politika privatnosti
               </Link>
@@ -156,6 +157,18 @@ export function Footer() {
                 Uslovi korišćenja
               </Link>
             </div>
+          </div>
+
+          {/* Developer Credit */}
+          <div className="mt-6 pt-6 border-t border-slate-800 flex flex-col items-center justify-center gap-3 text-slate-400">
+            <span>Developed by</span>
+            <Image
+              src="/genz-logo.png"
+              alt="GenZ IT Solutions"
+              width={280}
+              height={90}
+              className="h-20 w-auto"
+            />
           </div>
         </div>
       </div>
